@@ -1,6 +1,4 @@
 import { Injectable } from '@nestjs/common';
-// import { CreateBookDto } from './dto/create-book.dto';
-// import { UpdateBookDto } from './dto/update-book.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Book } from './entities/book.entity';
 import * as mongoose from 'mongoose';
@@ -20,16 +18,4 @@ export class BookService {
     const books = await this.bookModel.find();
     return books;
   }
-
-  // findOne(id: number) {
-  //   return `This action returns a #${id} book`;
-  // }
-
-  // update(id: number, updateBookDto: UpdateBookDto) {
-  //   return `This action updates a #${id} book`;
-  // }
-
-  // remove(id: number) {
-  //   return `This action removes a #${id} book`;
-  // }
 }
