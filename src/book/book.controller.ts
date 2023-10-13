@@ -3,6 +3,8 @@ import { BookService } from './book.service';
 import { CreateBookDto } from './dto/create-book.dto';
 import { Book } from './entities/book.entity';
 import { AuthGuard } from '@nestjs/passport';
+import { Roles } from '../role/roles.decorator';
+import { Role } from '../role/role.enum';
 
 @Controller('book')
 export class BookController {
@@ -16,6 +18,7 @@ export class BookController {
 
   @Get()
   @UseGuards(AuthGuard())
+  // @Roles(Role.Admin)
   async getAllData(): Promise<Book[]> {
     return this.bookService.findAll();
   }
